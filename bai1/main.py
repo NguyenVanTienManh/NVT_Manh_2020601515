@@ -25,6 +25,7 @@ class LinearEquationSolverApp:
         self.entries_b = [ttk.Entry(self.root, width=5) for _ in range(self.num_equations)]
         self.solve_button = ttk.Button(self.root, text="Giải", command=self.solve_equation)
         self.result_label = ttk.Label(self.root, text="Nghiệm:")
+        self.exit_button = ttk.Button(self.root, text="Thoát", command=self.root.destroy)
 
         # Đặt các đối tượng UI lên giao diện
         self.label_a.grid(row=0, column=0, pady=5)
@@ -36,7 +37,7 @@ class LinearEquationSolverApp:
             self.entries_b[i].grid(row=self.num_equations, column=i+1, padx=2, pady=2)
         self.solve_button.grid(row=self.num_equations+1, column=0, columnspan=self.num_equations+1, pady=10)
         self.result_label.grid(row=self.num_equations+2, column=0, columnspan=self.num_equations+1, pady=5)
-
+        self.exit_button.grid(row=self.num_equations+3, column=0, columnspan=self.num_equations+1,pady=10)
         # Tự động điều chỉnh kích thước cửa sổ
         self.root.update()
         self.root.minsize(self.root.winfo_width(), self.root.winfo_height())
