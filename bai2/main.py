@@ -1,6 +1,7 @@
 import sympy as sp
 import tkinter as tk
 from tkinter import messagebox
+import webbrowser
 
 # Hàm để tính đạo hàm của một hàm số
 def tinh_dao_ham():
@@ -11,7 +12,6 @@ def tinh_dao_ham():
     except Exception as e:
         messagebox.showerror("Lỗi", "Lỗi xảy ra: " + str(e))
 
-# Hàm để tính tích phân của một hàm số
 def tinh_tich_phan():
     try:
         bieu_thuc = sp.simplify(bieu_thuc_entry.get())
@@ -19,6 +19,12 @@ def tinh_tich_phan():
         ket_qua_label.config(text="Tích phân của hàm số là: " + str(tich_phan))
     except Exception as e:
         messagebox.showerror("Lỗi", "Lỗi xảy ra: " + str(e))
+
+# Hàm để tìm kiếm tài liệu học tập trên trình duyệt web
+def tim_kiem_tai_lieu():
+    query = bieu_thuc_entry.get() + " tài liệu giải tích "
+    search_url = "https://www.google.com/search?q=" + query
+    webbrowser.open(search_url)
 
 # Hàm để đóng ứng dụng
 def thoat_chuong_trinh():
@@ -41,11 +47,14 @@ tinh_dao_ham_button.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
 tinh_tich_phan_button = tk.Button(root, text="Tính tích phân", command=tinh_tich_phan)
 tinh_tich_phan_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
+tim_kiem_button = tk.Button(root, text="Tìm tài liệu học tập", command=tim_kiem_tai_lieu)
+tim_kiem_button.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+
 ket_qua_label = tk.Label(root, text="", wraplength=300)
-ket_qua_label.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+ket_qua_label.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
 
 thoat_button = tk.Button(root, text="Thoát", command=thoat_chuong_trinh)
-thoat_button.grid(row=4, column=0, columnspan=2, padx=10, pady=10)
+thoat_button.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
 
 # Bắt đầu chương trình
 root.mainloop()
