@@ -12,11 +12,11 @@ def tinh_dao_ham():
     except Exception as e:
         messagebox.showerror("Lỗi", "Lỗi xảy ra: " + str(e))
 
-def tinh_tich_phan():
+def tinh_nguyen_ham():
     try:
         bieu_thuc = sp.simplify(bieu_thuc_entry.get())
-        tich_phan = sp.integrate(bieu_thuc)
-        ket_qua_label.config(text="Tích phân của hàm số là: " + str(tich_phan))
+        nguyen_ham = sp.integrate(bieu_thuc)
+        ket_qua_label.config(text="Nguyên hàm của hàm số là: " + str(nguyen_ham))
     except Exception as e:
         messagebox.showerror("Lỗi", "Lỗi xảy ra: " + str(e))
 
@@ -44,7 +44,7 @@ bieu_thuc_entry.grid(row=0, column=1, padx=10, pady=10)
 tinh_dao_ham_button = tk.Button(root, text="Tính đạo hàm", command=tinh_dao_ham)
 tinh_dao_ham_button.grid(row=1, column=0, columnspan=2, padx=10, pady=10)
 
-tinh_tich_phan_button = tk.Button(root, text="Tính tích phân", command=tinh_tich_phan)
+tinh_tich_phan_button = tk.Button(root, text="Tính tích phân", command=tinh_nguyen_ham())
 tinh_tich_phan_button.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
 tim_kiem_button = tk.Button(root, text="Tìm tài liệu học tập", command=tim_kiem_tai_lieu)
