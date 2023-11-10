@@ -6,7 +6,7 @@ import numpy as np
 class LinearEquationSolverApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Linear Equation Solver")
+        self.root.title("phương trình tuyến tính")
 
         self.num_equations = self.get_num_equations()
 
@@ -62,7 +62,7 @@ class LinearEquationSolverApp:
             # Tạo chuỗi kết quả
             result_str = "Nghiệm:"
             for i, sol in enumerate(solution):
-                result_str += f" x{i + 1} = {sol}"
+                result_str +=f" \r\n x{i + 1} = {sol}\r\n"
 
             # Hiển thị kết quả
             self.result_label.config(text=result_str)
